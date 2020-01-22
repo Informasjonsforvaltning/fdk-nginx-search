@@ -38,7 +38,6 @@ jobs:
             helm repo add fdk https://informasjonsforvaltning.github.io/helm-chart/
             helm fetch --untar --untardir ./helm fdk/fdk-nginx-search
             helm template --set DOCKER_IMAGE_NAME="eu.gcr.io/fdk-infra/fdk-nginx-search:$GITHUB_SHA" -f ./helm/fdk-nginx-search/values/staging.yaml ./helm/fdk-nginx-search/ > ./kubectlapply.yaml
-            cat ./kubectlapply.yaml
             chmod o+w ./kubectlapply.yaml
             cat kubectlapply.yaml
 
@@ -63,10 +62,3 @@ jobs:
         uses: pullreminders/slack-action@master
         with:
           args: '{\"channel\":\"C7NTH118T\",\"text\":\"Application: fdk-nginx-search deployed to staging\"}'
-
-      - name: Trigger deploy to staging-ut1
-        uses: peter-evans/repository-dispatch@master
-        with:
-          token: ${{ secrets.DISPATCH_TOKEN }}
-          event-type: deploy-ut1
-          client-payload: '{"sha": "${{ github.sha }}"}'

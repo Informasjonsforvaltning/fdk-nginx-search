@@ -2,7 +2,7 @@ name: Deploy to demo (digdir)
 
 on:
   repository_dispatch:
-    types: [deploy-demo-digdir]
+    types: [deploy-demo]
 
 jobs:
   deploy-demo:
@@ -44,4 +44,4 @@ jobs:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
         uses: pullreminders/slack-action@master
         with:
-          args: '{\"channel\":\"C7NTH118T\",\"text\":\"Application: fdk-nginx-search deployed to digdir-demo\"}'
+          args: '{\"channel\":\"C7NTH118T\",\"text\":\"Application: fdk-nginx-search deployed to demo\"}'

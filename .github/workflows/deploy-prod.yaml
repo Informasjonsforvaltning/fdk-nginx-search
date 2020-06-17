@@ -37,7 +37,7 @@ jobs:
             helm init --client-only
             helm repo add fdk https://informasjonsforvaltning.github.io/helm-chart/
             helm fetch --untar --untardir ./helm fdk/fdk-nginx-search
-            helm template --set DOCKER_IMAGE_NAME="eu.gcr.io/digdir-fdk-infra/fdk-nginx-search:$GITHUB_SHA" -f ./helm/fdk-nginx-search/values/prod-digdir.yaml ./helm/fdk-nginx-search/ > ./kubectlapply.yaml
+            helm template --set DOCKER_IMAGE_NAME="eu.gcr.io/digdir-fdk-infra/fdk-nginx-search:$GITHUB_SHA" -f ./helm/fdk-nginx-search/values/prod.yaml ./helm/fdk-nginx-search/ > ./kubectlapply.yaml
             chmod o+w ./kubectlapply.yaml
             cat kubectlapply.yaml
 

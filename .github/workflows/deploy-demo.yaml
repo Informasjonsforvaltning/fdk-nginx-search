@@ -6,7 +6,8 @@ on:
 
 jobs:
   deploy-demo:
-    name: Deploy latest production image to demo environment
+    # This workflow uses the staging image, since production utilize a different nginx.config
+    name: Deploy latest staging image to demo environment
     runs-on: ubuntu-latest
 
     steps:

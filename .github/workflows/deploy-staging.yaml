@@ -62,9 +62,9 @@ jobs:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         if: always()
 
-      - name: Trigger deploy to demo
-        uses: peter-evans/repository-dispatch@master
-        with:
-          token: ${{ secrets.DISPATCH_TOKEN }}
-          event-type: deploy-demo
-          client-payload: '{"sha": "${{ github.sha }}"}'
+#      - name: Trigger deploy to demo
+#        uses: peter-evans/repository-dispatch@master
+#        with:
+#          token: ${{ secrets.DISPATCH_TOKEN }}
+#          event-type: deploy-demo
+#          client-payload: '{"sha": "${{ github.sha }}"}'

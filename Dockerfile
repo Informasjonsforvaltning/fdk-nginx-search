@@ -9,4 +9,3 @@ COPY favicon.ico /var/www/http-error/favicon.ico
 COPY maintenance.html /var/www/http-error/maintenance.html
 
 EXPOSE 8080
-

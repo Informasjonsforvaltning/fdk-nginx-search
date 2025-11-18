@@ -3,7 +3,9 @@ services:
     image: nginx:latest
     container_name: nginx-config-dev-test
     volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf:ro     # Mount your custom Nginx config file
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./web-headers.conf:/etc/nginx/web-headers.conf:ro
+      - ./api-headers.conf:/etc/nginx/api-headers.conf:ro
     extra_hosts:
       - "data-norge-frontend:127.0.0.1"
       - "fdk-portal:127.0.0.1"                    # Add a mock hostname resolution
@@ -30,6 +32,8 @@ services:
     volumes:
       - ./nginx-prod.conf:/etc/nginx/nginx.conf:ro  # Mount your custom Nginx config file
       - ./redirections.conf:/etc/nginx/redirections.conf:ro
+      - ./web-headers.conf:/etc/nginx/web-headers.conf:ro
+      - ./api-headers.conf:/etc/nginx/api-headers.conf:ro
     extra_hosts:
       - "data-norge-frontend:127.0.0.1"
       - "fdk-portal:127.0.0.1"                    # Add a mock hostname resolution
